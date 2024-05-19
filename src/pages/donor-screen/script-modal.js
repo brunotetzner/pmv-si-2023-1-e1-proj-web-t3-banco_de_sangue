@@ -77,7 +77,7 @@ buttonSubmitProfileChanges.addEventListener('click', function() {
   newProfile.bloodType = verifyAndReplace(inputEditBloodType, newProfile.bloodType)
   newProfile.city = verifyAndReplace(inputEditCity, newProfile.city)
 
-  if(newProfile.bornAt.includes('-')) {
+  if(newProfile.bornAt?.includes('-')) {
     const splitData = newProfile.bornAt.split('-');
     const formatedBornAt = splitData[2] + '/' + splitData[1] + '/' + splitData[0];
     newProfile.bornAt = formatedBornAt 

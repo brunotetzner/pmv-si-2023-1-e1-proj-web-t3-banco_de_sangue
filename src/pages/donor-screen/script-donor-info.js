@@ -158,18 +158,18 @@ const saveDatabase = (database) => {
 
 function getUserById(userId) {
   const database = getDatabase();
-  const user = database.find(user => user.id === userId);
+  const user = database.users.find(user => user.id === userId);
   return user;
 }
 
 function editUser(userId, updatedUser) {
   const database = getDatabase();
-  const user = database.find(user => user.id === userId);
+  const user = database.users.find(user => user.id === userId);
   if (user) {
     Object.assign(user, updatedUser);
     saveDatabase(database);
   }
-  return database.find(user => user.id === userId);
+  return database.users.find(user => user.id === userId);
 }
 
 
@@ -236,7 +236,7 @@ if(user.bloodType){
 
 const donationData = document.getElementsByClassName('donation-data')[0];
 
-if(!user.bloodType || !user.bornAt || !user.isHealthNow || !user.city){
+if(!user.bloodType || !user.bornAt || !user.city){
   renderUserIsNotADonator(donationData, user.id)
 }
 else if(!user.donations){
